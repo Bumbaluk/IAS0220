@@ -1,0 +1,34 @@
+[0.481s] Invoking command in '/home/lukas/ros2_ws/src/IAS0220_252062IV': PYTHONPATH=/home/lukas/ros2_ws/src/build/IAS0220_252062IV/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/lukas/ros2_ws/src/install/IAS0220_252062IV/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/IAS0220_252062IV build --build-base /home/lukas/ros2_ws/src/build/IAS0220_252062IV/build install --record /home/lukas/ros2_ws/src/build/IAS0220_252062IV/install.log --single-version-externally-managed install_data
+[0.654s] running egg_info
+[0.654s] creating ../build/IAS0220_252062IV/IAS0220_252062IV.egg-info
+[0.654s] writing ../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/PKG-INFO
+[0.655s] writing dependency_links to ../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/dependency_links.txt
+[0.655s] writing entry points to ../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/entry_points.txt
+[0.655s] writing requirements to ../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/requires.txt
+[0.655s] writing top-level names to ../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/top_level.txt
+[0.655s] writing manifest file '../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/SOURCES.txt'
+[0.656s] reading manifest file '../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/SOURCES.txt'
+[0.656s] adding license file 'LICENSE'
+[0.656s] writing manifest file '../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/SOURCES.txt'
+[0.656s] running build
+[0.656s] running build_py
+[0.657s] creating /home/lukas/ros2_ws/src/build/IAS0220_252062IV/build
+[0.657s] creating /home/lukas/ros2_ws/src/build/IAS0220_252062IV/build/lib
+[0.657s] creating /home/lukas/ros2_ws/src/build/IAS0220_252062IV/build/lib/IAS0220_252062IV
+[0.657s] copying IAS0220_252062IV/__init__.py -> /home/lukas/ros2_ws/src/build/IAS0220_252062IV/build/lib/IAS0220_252062IV
+[0.657s] running install
+[0.657s] running install_lib
+[0.658s] creating /home/lukas/ros2_ws/src/install/IAS0220_252062IV/lib/python3.10/site-packages/IAS0220_252062IV
+[0.658s] copying /home/lukas/ros2_ws/src/build/IAS0220_252062IV/build/lib/IAS0220_252062IV/__init__.py -> /home/lukas/ros2_ws/src/install/IAS0220_252062IV/lib/python3.10/site-packages/IAS0220_252062IV
+[0.658s] byte-compiling /home/lukas/ros2_ws/src/install/IAS0220_252062IV/lib/python3.10/site-packages/IAS0220_252062IV/__init__.py to __init__.cpython-310.pyc
+[0.658s] running install_data
+[0.658s] creating /home/lukas/ros2_ws/src/install/IAS0220_252062IV/share/ament_index
+[0.658s] creating /home/lukas/ros2_ws/src/install/IAS0220_252062IV/share/ament_index/resource_index
+[0.658s] creating /home/lukas/ros2_ws/src/install/IAS0220_252062IV/share/ament_index/resource_index/packages
+[0.659s] copying resource/IAS0220_252062IV -> /home/lukas/ros2_ws/src/install/IAS0220_252062IV/share/ament_index/resource_index/packages
+[0.659s] copying package.xml -> /home/lukas/ros2_ws/src/install/IAS0220_252062IV/share/IAS0220_252062IV
+[0.659s] running install_egg_info
+[0.660s] Copying ../build/IAS0220_252062IV/IAS0220_252062IV.egg-info to /home/lukas/ros2_ws/src/install/IAS0220_252062IV/lib/python3.10/site-packages/IAS0220_252062IV-0.0.0-py3.10.egg-info
+[0.661s] running install_scripts
+[0.677s] writing list of installed files to '/home/lukas/ros2_ws/src/build/IAS0220_252062IV/install.log'
+[0.705s] Invoked command in '/home/lukas/ros2_ws/src/IAS0220_252062IV' returned '0': PYTHONPATH=/home/lukas/ros2_ws/src/build/IAS0220_252062IV/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/lukas/ros2_ws/src/install/IAS0220_252062IV/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/IAS0220_252062IV build --build-base /home/lukas/ros2_ws/src/build/IAS0220_252062IV/build install --record /home/lukas/ros2_ws/src/build/IAS0220_252062IV/install.log --single-version-externally-managed install_data
