@@ -14,9 +14,11 @@ setup(
         ('share/' + package_name, ['package.xml']), 
          # ✅ Install launch files
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
-
-        # ✅ Install URDF files
+         # ✅ Install urdf files
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*.urdf')),
+         # ✅ Install config files
+        (os.path.join('share', package_name, 'config'), glob('config/*.rviz')),
+
     ],
     install_requires=['setuptools'],
     zip_safe=True,

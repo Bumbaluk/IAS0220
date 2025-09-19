@@ -9,6 +9,7 @@
     <!--Base-->
     <link name="base_link">
         <visual>
+            <origin xyz="0 0 0.036" rpy="0 0 0"/>
             <geometry>
                 <box size="0.35 0.35 0.01"/>
             </geometry>
@@ -52,6 +53,7 @@
     <!-- Head marker -->
     <link name="head_marker">
         <visual>
+
             <geometry>
                 <box size="0.03 0.03 0.03"/>
             </geometry>
@@ -73,11 +75,15 @@
         <visual>
             <origin xyz="0 0 0" rpy="1.5708 0 0"/>
             <geometry>
-                <cylinder length="0.015" radius="0.01"/>
+                <sphere radius="0.012"/>
             </geometry>
             <material name="blue"/>
         </visual>
     </link>
+
+
+    <!--JOINTS FROM HERE-->
+
     <!--For footprint and base-->
     <joint name="footprint_to_base" type="fixed">
         <parent link="base_footprint"/>
@@ -103,21 +109,21 @@
     <joint name="base_to_head" type="fixed">
         <parent link="base_link"/>
         <child link="head_marker"/>
-        <origin xyz="0.18 0 0.03" rpy="0 0 0"/>
+        <origin xyz="0.15 0 0.05" rpy="0 0 0"/>
     </joint>
 
     <!-- Passive wheel holder joint -->
     <joint name="base_to_passive_holder" type="fixed">
         <parent link="base_link"/>
         <child link="passive_wheel_holder"/>
-        <origin xyz="-0.16 0 0" rpy="0 0 0"/>
+        <origin xyz="-0.15 0 0.01" rpy="0 0 0"/>
     </joint>
 
     <!-- Passive wheel to holder -->
     <joint name="holder_to_passive_wheel" type="fixed">
         <parent link="passive_wheel_holder"/>
         <child link="passive_wheel"/>
-        <origin xyz="0 0 -0.035" rpy="0 0 0"/>
+        <origin xyz="0 0 -0.03" rpy="0 0 0"/>
     </joint>
 </robot>
 
