@@ -1,69 +1,90 @@
 <?xml version="1.0"?>
-<!--For robot-->
-<robot name="my_robot">
-        <material name="blue">
-            <color rgba="0 0 0.8 1"/>
-        </material>
-        <material name="white">
-            <color rgba="1 1 1 1"/>
-        </material>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="my_robot">
+    <!--  ===================MATERIALS============  -->
+    <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+    </material>
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+    <!--  ================MACROS==================  -->
+    <!--basic box-->
+    <xacro:macro name="box_link" params="name size_a size_b size_c color mass ixx ixy ixz iyy iyz izz">
+        <link name="${name}">
+            <visual>
+                <geometry>
+                <box size="${size_a} ${size_b} ${size_c}"/>
+                </geometry>
+                <material name="${color}"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="${size_a} ${size_b} ${size_c}"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="${mass}"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia ixx="${ixx}" ixy="${ixy}" ixz="${ixz}" iyy="${iyy}" iyz="${iyz}" izz="${izz}"/>
+            </inertial>
+        </link>
+    </xacro:macro>
+    <!-- fixed joints -->
+    <xacro:macro name="fixed_joint" params="name parent child origin_x origin_y origin_z rpy_x rpy_y rpy_z">
+    <joint name="${name}" type="fixed">
+        <parent link="${parent}"/>
+        <child link="${child}"/>
+        <origin xyz="${origin_x} ${origin_y} ${origin_z}" rpy="${rpy_x} ${rpy_y} ${rpy_z}"/>
+    </joint>
+    </xacro:macro>
+    <!-- wheel macro -->
+    <xacro:macro name="wheel_macro" params="name length radius origin_x origin_y origin_z">
+        <link name="${name}">
+            <visual>
+                <geometry>
+                    <cylinder length= "${length}" radius="${radius}"/>
+                </geometry>
+                <material name="blue"/>
+            </visual>
+            <collision>
+                <geometry>
+                    <cylinder length= "${length}" radius="${radius}"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.025"/>
+                <inertia ixx="0.000008" ixy="0.0" ixz="0.0" iyy="0.000008" iyz="0.0" izz="0.000016"/>
+            </inertial>
+        </link>
+        <joint name="${name}_joint" type="continuous">
+            <parent link="base_link"/>
+            <child link="${name}"/>
+            <origin xyz="${origin_x} ${origin_y} ${origin_z}" rpy="1.5708 0 0"/>
+            <axis xyz="0 0 1"/>
+        </joint>
+    </xacro:macro>
+    <!-- marker macro -->
+    <xacro:macro name="marker_macro" params="name size_a size_b size_c parent_link origin_x origin_y origin_z">
+        <xacro:box_link name="${name}" size_a="${size_a}" size_b="${size_b}" size_c="${size_c}" color="white" mass="0"
+        ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        <xacro:fixed_joint name="${name}_joint" parent="${parent_link}" child="${name}" origin_x="${origin_x}" origin_y="${origin_y}" 
+        origin_z="${origin_z}" rpy_x="0" rpy_y="0" rpy_z="0"/>
+    </xacro:macro>
+    <!-- ======================BASE AND BUILD====================-->
     <!--dummy link-->
     <link name="base_footprint"/>
     <!--Base-->
-    <link name="base_link">
-        <visual>
-            <geometry>
-                <box size="0.33 0.34 0.01"/>
-            </geometry>
-            <material name="blue"/>
-        </visual>
-    </link>
-
-    <!--Left wheel-->
-    <link name="left_wheel">
-        <visual>
-            <geometry>
-                <cylinder length= "0.01" radius="0.036"/>
-            </geometry>
-            <material name="blue"/>
-        </visual>
-        <inertial>
-            <mass value="1"/>
-            <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
-        </inertial>
-    </link>
-
-    <!--Right wheel-->
-    <link name="right_wheel">
-        <visual>
-            <geometry>
-                <cylinder length= "0.01" radius="0.036"/>
-            </geometry>
-            <material name="blue"/>
-        </visual>
-        <inertial>
-            <mass value="1"/>
-            <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
-        </inertial>
-    </link>
+    <xacro:box_link name="base_link" size_a="0.33" size_b="0.34" size_c="0.01" color="blue" mass = "0.2"
+    ixx="0.0019" ixy="0.0" ixz="0.0" iyy="0.0018" iyz="0.0" izz="0.0037"/>
+    <!--wheels-->
+    <xacro:wheel_macro name="left_wheel" length="0.01" radius="0.036" origin_x="0" origin_y="0.175" origin_z="0"/>
+    <xacro:wheel_macro name="right_wheel" length="0.01" radius="0.036" origin_x="0" origin_y="-0.175" origin_z="0"/>
     <!-- Head marker -->
-    <link name="head_marker">
-        <visual>
-            <geometry>
-                <box size="0.03 0.03 0.03"/>
-            </geometry>
-            <material name="blue"/>
-        </visual>
-    </link>
+    <xacro:box_link name="head_marker" size_a="0.03" size_b="0.03" size_c="0.03" color="blue" mass="0.02"
+    ixx="3.00e-6" ixy="0.0" ixz="0.0" iyy="3.00e-6" iyz="0.0" izz="3.00e-6"/>
     <!-- Passive wheel holder -->
-    <link name="passive_wheel_holder">
-        <visual>
-            <geometry>
-                <box size="0.02 0.02 0.04"/>
-            </geometry>
-            <material name="blue"/>
-        </visual>
-    </link>
+    <xacro:box_link name="passive_wheel_holder" size_a="0.02" size_b="0.02" size_c="0.04" color="blue" mass = "0.015"
+    ixx="1.17e-6" ixy="0.0" ixz="0.0" iyy="1.17e-6" iyz="0.0" izz="5.00e-7"/>
    <!-- Passive wheel -->
     <link name="passive_wheel">
         <visual>
@@ -72,78 +93,33 @@
             </geometry>
             <material name="white"/>
         </visual>
+        <collision>
+            <geometry>
+                <sphere radius="0.0105"/>
+            </geometry>
+        </collision>
+        <inertial> <!-- Inertial for passive_wheel -->
+            <mass value="0.01"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="8.82e-7" ixy="0.0" ixz="0.0" iyy="8.82e-7" iyz="0.0" izz="8.82e-7"/>
+        </inertial>
     </link>
     <!--wheel rotator markers-->
-    <link name="lw_marker">
-        <visual>
-            <geometry>
-                <box size="0.03 0.03 0.001"/>
-            </geometry>
-            <material name="white"/>
-        </visual>
-    </link>
-    <link name="rw_marker">
-        <visual>
-            <geometry>
-                <box size="0.03 0.03 0.001"/>
-            </geometry>
-            <material name="white"/>
-        </visual>
-    </link>
-    <!--JOINTS FROM HERE-->
-
+    <xacro:marker_macro name="lw_marker" size_a="0.03" size_b="0.03" size_c="0.001" parent_link="left_wheel" origin_x="0" origin_y="0" origin_z="-0.005"/>
+    <xacro:marker_macro name="rw_marker" size_a="0.03" size_b="0.03" size_c="0.001" parent_link="right_wheel" origin_x="0" origin_y="0" origin_z="0.005"/>
+    
+    <!--====================JOINTS FROM HERE=======================-->
     <!--For footprint and base-->
-    <joint name="footprint_to_base" type="fixed">
-        <parent link="base_footprint"/>
-        <child link="base_link"/>
-        <origin xyz="0 0 0.036" rpy="0 0 0"/>
-    </joint>
-    <!--Left wheel Joint-->
-    <joint name="base_to_left_wheel" type="continuous">
-        <parent link="base_link"/>
-        <child link="left_wheel"/>
-        <origin xyz="0 0.175 0" rpy="1.5708 0 0"/>
-        <axis xyz="0 0 1"/>
-    </joint>
-    <!--Right wheel Joint-->
-    <joint name="base_to_right_wheel" type="continuous">
-        <parent link="base_link"/>
-        <child link="right_wheel"/>
-        <origin xyz="0 -0.175 0" rpy="1.5708 0 0"/> 
-        <axis xyz="0 0 1"/>
-    </joint>
-
+    <xacro:fixed_joint name="footprint_to_base" parent="base_footprint" child="base_link"
+        origin_x="0" origin_y="0" origin_z="0.036" rpy_x="0" rpy_y="0" rpy_z="0"/>
     <!-- Head fixed joint -->
-    <joint name="base_to_head" type="fixed">
-        <parent link="base_link"/>
-        <child link="head_marker"/>
-        <origin xyz="0.15 0 0.02" rpy="0 0 0"/>
-    </joint>
-
+    <xacro:fixed_joint name="base_to_head" parent="base_link" child="head_marker"
+        origin_x="0.15" origin_y="0" origin_z="0.02" rpy_x="0" rpy_y="0" rpy_z="0"/>
     <!-- Passive wheel holder joint -->
-    <joint name="base_to_passive_holder" type="fixed">
-        <parent link="base_link"/>
-        <child link="passive_wheel_holder"/>
-        <origin xyz="0.15 0 -0.008" rpy="0 0 0"/>
-    </joint>
-
+    <xacro:fixed_joint name="base_to_passive_holder" parent="base_link" child="passive_wheel_holder"
+        origin_x="0.15" origin_y="0" origin_z="-0.008" rpy_x="0" rpy_y="0" rpy_z="0"/>
     <!-- Passive wheel to holder -->
-    <joint name="holder_to_passive_wheel" type="fixed">
-        <parent link="passive_wheel_holder"/>
-        <child link="passive_wheel"/>
-        <origin xyz="0 0 -0.022" rpy="0 0 0"/>
-    </joint>
-    <!-- lw marker joint -->
-    <joint name="lw_marker_joint" type="fixed">
-        <parent link="left_wheel"/>
-        <child link="lw_marker"/>
-        <origin xyz="0 0 -0.005" rpy="0 0 0"/>
-    </joint>
-
-    <!-- rw marker joint -->
-    <joint name="rw_marker_joint" type="fixed">
-        <parent link="right_wheel"/>
-        <child link="rw_marker"/>
-        <origin xyz="0 0 0.005" rpy="0 0 0"/>
-    </joint>
+    <xacro:fixed_joint name="holder_to_passive_wheel" parent="passive_wheel_holder" child="passive_wheel"
+        origin_x="0" origin_y="0" origin_z="-0.022" rpy_x="0" rpy_y="0" rpy_z="0"/>
 </robot>
+    
