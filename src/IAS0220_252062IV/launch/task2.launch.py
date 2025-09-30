@@ -7,6 +7,7 @@ import xacro
 
 package_name = "IAS0220_252062IV"
 
+
 def generate_launch_description():
     package_path = os.path.join(get_package_share_directory(package_name))
 
@@ -16,13 +17,11 @@ def generate_launch_description():
     xacro.process_doc(doc)
     params = {"robot_description": doc.toxml()}
 
-
     # Load plain URDF directly
-    '''urdf_file = os.path.join(package_path, "urdf", "differential_robot.urdf")
+    '''urdf_file = os.path.join(package_path, "urdf", "differential_robot.urdf)
     with open(urdf_file, 'r') as infp:
         robot_description_content = infp.read()
     params = {"robot_description": robot_description_content}'''
-
 
     # Define launch arguments
     rvizconfig = LaunchConfiguration(
@@ -39,7 +38,7 @@ def generate_launch_description():
         package="rviz2",
         executable="rviz2",
         name="rviz",
-        arguments=["-d", rvizconfig],
+        arguments=["-d", rvizconfig],  # --display-config
     )
 
     robot_state_publisher_node = Node(
