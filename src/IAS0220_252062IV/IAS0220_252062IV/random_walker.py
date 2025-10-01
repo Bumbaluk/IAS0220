@@ -9,7 +9,7 @@ import time
 class WalkPublisher(Node):
     def __init__(self):
         super().__init__('random_walker')
-        self.publisher_ = self.create_publisher(Vector3, 'velocity', 10)
+        self.vel_pub = self.create_publisher(Vector3, 'velocity', 10)
         self.time_pub = self.create_publisher(String, '/name_and_time', 10)
 
         # Timer at 2Hz = every 0.5 seconds
@@ -22,7 +22,7 @@ class WalkPublisher(Node):
     def timer_callback(self):
         # publish velocity
         vel = Vector3(random.choices([-1, 0, 1]), random.choices(-1, 0, 1), 0)
-        self.publisher_.publish(vel)
+        self.vel_pub.publish(vel)
 
         # publish message with id time and velocity
         current_time = time.time()

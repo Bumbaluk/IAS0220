@@ -1,3 +1,0 @@
-[console_scripts]
-test_node = IAS0220_252062IV.test_node:main
-
