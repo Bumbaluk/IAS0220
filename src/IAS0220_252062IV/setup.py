@@ -30,15 +30,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'test_node = IAS0220_252062IV.test_node:main',
+            'random_walker = IAS0220_252062IV.random_walker:main',
+            'position_calculator= IAS0220_252062IV.position_calculator:main',
         ],
     },
 
 )
-
-'''
-entry_points={
-'console_scripts': [
-],
-},
-'''
