@@ -17,19 +17,13 @@ def generate_launch_description():
     xacro.process_doc(doc)
     params = {"robot_description": doc.toxml()}
 
-    # Load plain URDF directly
-    '''urdf_file = os.path.join(package_path, "urdf", "differential_robot.urdf)
-    with open(urdf_file, 'r') as infp:
-        robot_description_content = infp.read()
-    params = {"robot_description": robot_description_content}'''
-
     # Define launch arguments
     rvizconfig = LaunchConfiguration(
         "rvizconfig",
         default=os.path.join(
             get_package_share_directory(package_name),
             "config",
-            "task2_config.rviz",
+            "task3_config.rviz",
         ),
     )
 
@@ -54,10 +48,31 @@ def generate_launch_description():
         name="joint_state_publisher_gui",
     )
 
+    # a Node for transform_frame
+    transform_frame_node = Node(
+        package='transform_frame',
+        executable='move',
+        name='move',
+        output='screen'
+    )
+
+    # a Node for keyboard
+    keyboard_operation_node = Node(
+        package="teleop_twist_keyboard",
+        executable="teleop_twist_keyboard",
+        name="keyboard_control",
+        output="screen",
+        remappings=[
+            ('/cmd_vel', 'move/cmd_vel')
+        ]
+    )
+
     return LaunchDescription(
         [
             robot_state_publisher_node,
             joint_state_publisher_gui_node,
             rviz_node,
+            transform_frame_node,
+            keyboard_operation_node,
         ]
     )
