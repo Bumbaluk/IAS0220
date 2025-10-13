@@ -123,7 +123,14 @@
     <xacro:fixed_joint name="holder_to_passive_wheel" parent="passive_wheel_holder" child="passive_wheel"
         origin_x="0" origin_y="0" origin_z="-0.016" rpy_x="0" rpy_y="0" rpy_z="0"/>
 
-    <!-- === GAZEBO TAGS FOR PHYSICAL PROPERTIES === -->
+
+
+
+
+
+    <!-- ========== GAZEBO / PLUGINS ========== -->
+
+    <!-- Physical properties definitions (friction, etc.) -->
     <gazebo reference="base_link">
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
@@ -131,7 +138,6 @@
         <kd>1.0</kd>
         <material>Gazebo/Black</material>
     </gazebo>
-
     <gazebo reference="left_wheel">
         <mu1>0.9</mu1>
         <mu2>0.9</mu2>
@@ -139,7 +145,6 @@
         <kd>1.0</kd>
         <material>Gazebo/Black</material>
     </gazebo>
-
     <gazebo reference="right_wheel">
         <mu1>0.9</mu1>
         <mu2>0.9</mu2>
@@ -147,33 +152,40 @@
         <kd>1.0</kd>
         <material>Gazebo/Black</material>
     </gazebo>
-
     <gazebo reference="passive_wheel">
-        <mu1>0.4</mu1>
-        <mu2>0.4</mu2>
+        <mu1>0.0</mu1>
+        <mu2>0.0</mu2>
         <kp>100000</kp>
         <kd>1.0</kd>
         <material>Gazebo/Grey</material>
     </gazebo>
+
+    <!-- Differential drive plugin -->
     <gazebo>
         <plugin name="diff_drive_controller" filename="libgazebo_ros_diff_drive.so">
             <ros>
-            <remapping>odom:=diff_cont/odom</remapping>
+                <remapping>odom:=diff_cont/odom</remapping>
             </ros>
-            <robot_base_frame>base_link</robot_base_frame>
-            <odom_frame>odom</odom_frame>
+            <update_rate>30.0</update_rate>
             <left_joint>base_to_left_wheel</left_joint>
             <right_joint>base_to_right_wheel</right_joint>
             <wheel_separation>0.34</wheel_separation>
             <wheel_diameter>0.072</wheel_diameter>
+
+            <odom_frame>map</odom_frame>
+            <robot_base_frame>base_footprint</robot_base_frame>
+
+            <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>true</publish_wheel_tf>
             <odometry_source>0</odometry_source>
-            <update_rate>30</update_rate>
+            <command_topic>/cmd_vel</command_topic>
+
             <command_topic>cmd_vel</command_topic>
-            <odometry_topic>diff_cont/odom</odometry_topic>
-            <publish_tf>true</publish_tf>
             <max_wheel_torque>2.0</max_wheel_torque>
             <max_wheel_acceleration>0.5</max_wheel_acceleration>
         </plugin>
     </gazebo>
+
+
 </robot>
-    
