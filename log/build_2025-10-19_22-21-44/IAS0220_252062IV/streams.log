@@ -1,0 +1,27 @@
+[0.493s] Invoking command in '/home/lukas/ros2_ws/src/IAS0220_252062IV': PYTHONPATH=/home/lukas/ros2_ws/build/IAS0220_252062IV/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/lukas/ros2_ws/install/IAS0220_252062IV/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/IAS0220_252062IV build --build-base /home/lukas/ros2_ws/build/IAS0220_252062IV/build install --record /home/lukas/ros2_ws/build/IAS0220_252062IV/install.log --single-version-externally-managed install_data
+[0.673s] running egg_info
+[0.673s] writing ../../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/PKG-INFO
+[0.673s] writing dependency_links to ../../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/dependency_links.txt
+[0.674s] writing entry points to ../../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/entry_points.txt
+[0.674s] writing requirements to ../../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/requires.txt
+[0.674s] writing top-level names to ../../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/top_level.txt
+[0.675s] reading manifest file '../../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/SOURCES.txt'
+[0.675s] adding license file 'LICENSE'
+[0.676s] writing manifest file '../../build/IAS0220_252062IV/IAS0220_252062IV.egg-info/SOURCES.txt'
+[0.676s] running build
+[0.676s] running build_py
+[0.676s] copying IAS0220_252062IV/odometry.py -> /home/lukas/ros2_ws/build/IAS0220_252062IV/build/lib/IAS0220_252062IV
+[0.676s] running install
+[0.676s] running install_lib
+[0.678s] copying /home/lukas/ros2_ws/build/IAS0220_252062IV/build/lib/IAS0220_252062IV/odometry.py -> /home/lukas/ros2_ws/install/IAS0220_252062IV/lib/python3.10/site-packages/IAS0220_252062IV
+[0.678s] byte-compiling /home/lukas/ros2_ws/install/IAS0220_252062IV/lib/python3.10/site-packages/IAS0220_252062IV/odometry.py to odometry.cpython-310.pyc
+[0.679s] running install_data
+[0.680s] running install_egg_info
+[0.681s] removing '/home/lukas/ros2_ws/install/IAS0220_252062IV/lib/python3.10/site-packages/IAS0220_252062IV-0.0.0-py3.10.egg-info' (and everything under it)
+[0.681s] Copying ../../build/IAS0220_252062IV/IAS0220_252062IV.egg-info to /home/lukas/ros2_ws/install/IAS0220_252062IV/lib/python3.10/site-packages/IAS0220_252062IV-0.0.0-py3.10.egg-info
+[0.682s] running install_scripts
+[0.698s] Installing odometry script to /home/lukas/ros2_ws/install/IAS0220_252062IV/lib/IAS0220_252062IV
+[0.698s] Installing position_calculator script to /home/lukas/ros2_ws/install/IAS0220_252062IV/lib/IAS0220_252062IV
+[0.698s] Installing random_walker script to /home/lukas/ros2_ws/install/IAS0220_252062IV/lib/IAS0220_252062IV
+[0.698s] writing list of installed files to '/home/lukas/ros2_ws/build/IAS0220_252062IV/install.log'
+[0.726s] Invoked command in '/home/lukas/ros2_ws/src/IAS0220_252062IV' returned '0': PYTHONPATH=/home/lukas/ros2_ws/build/IAS0220_252062IV/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/lukas/ros2_ws/install/IAS0220_252062IV/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/IAS0220_252062IV build --build-base /home/lukas/ros2_ws/build/IAS0220_252062IV/build install --record /home/lukas/ros2_ws/build/IAS0220_252062IV/install.log --single-version-externally-managed install_data

@@ -1,0 +1,23 @@
+[0.474s] Invoking command in '/home/lukas/ros2_ws/build/transform_frame': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/lukas/ros2_ws/install/setup_gazebo_ias0220:/home/lukas/ros2_ws/install/encoders_pkg:/home/lukas/ros2_ws/install/IAS0220_252062IV:/opt/ros/humble /usr/bin/cmake --build /home/lukas/ros2_ws/build/transform_frame -- -j16 -l16
+[0.536s] [35m[1mConsolidate compiler generated dependencies of target move[0m
+[0.563s] [100%] Built target move
+[0.610s] Invoked command in '/home/lukas/ros2_ws/build/transform_frame' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/lukas/ros2_ws/install/setup_gazebo_ias0220:/home/lukas/ros2_ws/install/encoders_pkg:/home/lukas/ros2_ws/install/IAS0220_252062IV:/opt/ros/humble /usr/bin/cmake --build /home/lukas/ros2_ws/build/transform_frame -- -j16 -l16
+[0.613s] Invoking command in '/home/lukas/ros2_ws/build/transform_frame': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/lukas/ros2_ws/install/setup_gazebo_ias0220:/home/lukas/ros2_ws/install/encoders_pkg:/home/lukas/ros2_ws/install/IAS0220_252062IV:/opt/ros/humble /usr/bin/cmake --install /home/lukas/ros2_ws/build/transform_frame
+[0.622s] -- Install configuration: ""
+[0.623s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/lib/transform_frame/move
+[0.623s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/share/ament_index/resource_index/package_run_dependencies/transform_frame
+[0.623s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/share/ament_index/resource_index/parent_prefix_path/transform_frame
+[0.623s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/share/transform_frame/environment/ament_prefix_path.sh
+[0.624s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/share/transform_frame/environment/ament_prefix_path.dsv
+[0.624s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/share/transform_frame/environment/path.sh
+[0.624s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/share/transform_frame/environment/path.dsv
+[0.624s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/share/transform_frame/local_setup.bash
+[0.624s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/share/transform_frame/local_setup.sh
+[0.624s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/share/transform_frame/local_setup.zsh
+[0.624s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/share/transform_frame/local_setup.dsv
+[0.624s] -- Installing: /home/lukas/ros2_ws/install/transform_frame/share/transform_frame/package.dsv
+[0.624s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/share/ament_index/resource_index/packages/transform_frame
+[0.624s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/share/transform_frame/cmake/transform_frameConfig.cmake
+[0.624s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/share/transform_frame/cmake/transform_frameConfig-version.cmake
+[0.624s] -- Up-to-date: /home/lukas/ros2_ws/install/transform_frame/share/transform_frame/package.xml
+[0.929s] Invoked command in '/home/lukas/ros2_ws/build/transform_frame' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/lukas/ros2_ws/install/setup_gazebo_ias0220:/home/lukas/ros2_ws/install/encoders_pkg:/home/lukas/ros2_ws/install/IAS0220_252062IV:/opt/ros/humble /usr/bin/cmake --install /home/lukas/ros2_ws/build/transform_frame
