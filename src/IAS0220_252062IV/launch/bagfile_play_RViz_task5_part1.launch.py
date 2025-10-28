@@ -1,117 +1,49 @@
-import os
-from ament_index_python.packages import get_package_share_directory
-from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
+import launch
+from launch.actions import DeclareLaunchArgument, ExecuteProcess
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
-
-package_name = "IAS0220_252062IV"
+from ament_index_python.packages import get_package_share_directory
+import os
 
 
 def generate_launch_description():
-    # Get paths
-    pkg_path = get_package_share_directory(package_name)
-    xacro_file = os.path.join(pkg_path,
-                              "urdf",
-                              "differential_robot_simu_task4_part2.urdf")
-    rviz_config_file = os.path.join(pkg_path, "config",
-                                    "task4_config.rviz")
 
-    # Declare xacro_file argument to pass to setup_gazebo_ias0220
-    declare_xacro_file_arg = DeclareLaunchArgument(
-        name='xacro_file',
-        default_value=xacro_file,
-        description='Path to robot xacro file'
+    # Declare the argument 'which_bag'
+    declare_which_bag = DeclareLaunchArgument(
+        'which_bag',
+        default_value='bag0',
+        description='Which bag to use for playback'
     )
 
-    # Include Gazebo launch from setup_gazebo_ias0220
-    gazebo_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory('setup_gazebo_ias0220'),
-                         'launch',
-                         'gazebo.launch.py')
-        ),
-        launch_arguments={
-            'xacro_file': LaunchConfiguration('xacro_file')}.items())
+    # Get the argument value
+    which_bag = LaunchConfiguration('which_bag')
 
-    # Encoders
-    encoders_node = Node(
-        package="encoders_pkg",
-        executable="encoders_node",
-        name="encoders_node",
-        output="screen",
-        parameters=[{'noisy': False}]
-    )
-    # Odometry
-    odometry_node = Node(
-        package=package_name,
-        executable="odometry",
-        name="odometry",
-        output="screen"
-    )
+    # Get the package share directory
+    pkg_dir = get_package_share_directory('ias0220_sensors')
 
-    # Static transform node
-    static_tf_node = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='map_to_odom_broadcaster',
-        arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom']
-    )
+    # Path to the bags folder
+    bag_path = PathJoinSubstitution([pkg_dir, 'bags', which_bag])
 
-    left_wheel_tf = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='left_wheel_tf',
-        arguments=[
-            '0', '0.175', '0', '0', '0', '0', 'base_link', 'left_wheel'],
+    # Path to RViz configuration
+    rviz_config_file = os.path.join(pkg_dir, 'rviz', 'task5_part1.rviz')
+
+    # Launch ros2 bag play
+    bag_replay = ExecuteProcess(
+        cmd=['ros2', 'bag', 'play', '-r', '1', '-l', bag_path],
         output='screen'
     )
 
-    right_wheel_tf = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='right_wheel_tf',
-        arguments=[
-            '0', '-0.175', '0', '0', '0', '0', 'base_link', 'right_wheel'],
-        output='screen'
-    )
-
-    # RViz
+    # Launch RViz with your saved configuration
     rviz_node = Node(
-        package="rviz2",
-        executable="rviz2",
-        name="rviz2",
-        arguments=["-d", rviz_config_file],
-        output="screen"
-    )
-
-    # Teleop
-    teleop_node = Node(
-        package="teleop_twist_keyboard",
-        executable="teleop_twist_keyboard",
-        name="teleop_keyboard",
-        output="screen",
-    )
-
-    # RQT Graph
-    rqt_graph_node = Node(
-        package='rqt_graph',
-        executable='rqt_graph',
-        name='rqt_graph',
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        arguments=['-d', rviz_config_file],
         output='screen'
     )
 
-    return LaunchDescription([
-        declare_xacro_file_arg,
-        gazebo_launch,
-        static_tf_node,
-        left_wheel_tf,
-        right_wheel_tf,
-        encoders_node,
-        odometry_node,
-        rviz_node,
-        teleop_node,
-        rqt_graph_node,
+    return launch.LaunchDescription([
+        declare_which_bag,
+        bag_replay,
+        rviz_node
     ])

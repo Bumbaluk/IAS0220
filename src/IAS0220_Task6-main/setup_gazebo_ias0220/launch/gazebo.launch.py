@@ -1,7 +1,6 @@
 import os
 from launch import LaunchDescription
-from launch.actions import (
-    DeclareLaunchArgument, IncludeLaunchDescription, OpaqueFunction)
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, OpaqueFunction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from ament_index_python.packages import get_package_share_directory
@@ -20,9 +19,9 @@ def spawn_and_publish(context, xacro_file: LaunchConfiguration):
         package='gazebo_ros',
         executable='spawn_entity.py',
         arguments=['-z', '0.05',
-                   '-unpause',
-                   '-topic', 'robot_description',
-                   '-entity',  'my_robot'],
+                '-unpause',
+                '-topic', 'robot_description',
+                '-entity',  'my_robot'],
     )
     spawn_entity_action.execute(context)
 
@@ -32,10 +31,9 @@ def spawn_and_publish(context, xacro_file: LaunchConfiguration):
         executable='robot_state_publisher',
         name='robot_state_publisher',
         parameters=[{'publish_frequency': 50.0,
-                    'robot_description': model['robot_description_xml']}]
-        )
+                    'robot_description': model['robot_description_xml']
+                    }])
     publish_state_action.execute(context)
-
 
 def generate_launch_description():
     # Define launch arguments
@@ -44,30 +42,23 @@ def generate_launch_description():
     gui = LaunchConfiguration('gui', default='true')
     headless = LaunchConfiguration('headless', default='false')
     debug = LaunchConfiguration('debug', default='false')
-    world_path = os.path.join(
-        get_package_share_directory('setup_gazebo_ias0220'),
-        'worlds',
-        "seethelight.world")
+    world_path = os.path.join(get_package_share_directory('setup_gazebo_ias0220'), 'worlds', "seethelight.world")
 
     world = LaunchConfiguration('world')
     # Declare launch arguments
-    declare_xacro_file_arg = DeclareLaunchArgument(
-        'xacro_file',
-        description='xacro file for gazebo launch file')
+    declare_xacro_file_arg = DeclareLaunchArgument('xacro_file', description = 'xacro file for gazebo launch file')
     declare_world_cmd = DeclareLaunchArgument(
         name='world',
         default_value=world_path,
         description='Full path to the world model file to load')
-
+    
     return LaunchDescription([
         declare_xacro_file_arg,
         declare_world_cmd,
 
         # Specify launch files
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                [get_package_share_directory('gazebo_ros'),
-                 '/launch/gazebo.launch.py']),
+            PythonLaunchDescriptionSource([get_package_share_directory('gazebo_ros'), '/launch/gazebo.launch.py']),
             launch_arguments={
                 'debug': debug,
                 'gui': gui,
@@ -79,6 +70,6 @@ def generate_launch_description():
         ),
 
         # Define an OpaqueFunction action to spawn and publish
-        OpaqueFunction(function=spawn_and_publish,
-                       args=[LaunchConfiguration('xacro_file')])
-        ])
+        OpaqueFunction(function=spawn_and_publish, args=[LaunchConfiguration('xacro_file')])
+        
+    ])
