@@ -1,5 +1,0 @@
-[console_scripts]
-odometry = IAS0220_252062IV.odometry:main
-position_calculator = IAS0220_252062IV.position_calculator:main
-random_walker = IAS0220_252062IV.random_walker:main
-

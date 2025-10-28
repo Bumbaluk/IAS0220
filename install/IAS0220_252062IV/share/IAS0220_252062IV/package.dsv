@@ -1,6 +1,0 @@
-source;share/IAS0220_252062IV/hook/pythonpath.ps1
-source;share/IAS0220_252062IV/hook/pythonpath.dsv
-source;share/IAS0220_252062IV/hook/pythonpath.sh
-source;share/IAS0220_252062IV/hook/ament_prefix_path.ps1
-source;share/IAS0220_252062IV/hook/ament_prefix_path.dsv
-source;share/IAS0220_252062IV/hook/ament_prefix_path.sh

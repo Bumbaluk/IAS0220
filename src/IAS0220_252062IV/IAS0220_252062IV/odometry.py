@@ -17,7 +17,7 @@ class OdometryNode(Node):
 
         # Robot constants
         self.wheel_radius = 0.036
-        self.wheel_base = 0.34
+        self.wheel_base = 0.35
         self.ticks_per_rev = 508.8
 
         # Odometry state
