@@ -1,0 +1,96 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found rosbag2_transport: 0.15.15 (/opt/ros/humble/share/rosbag2_transport/cmake)
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0")  
+-- Found tf2_msgs: 0.25.16 (/opt/ros/humble/share/tf2_msgs/cmake)
+-- Found tf2_ros: 0.25.16 (/opt/ros/humble/share/tf2_ros/cmake)
+-- Found plotjuggler: 3.13.2 (/usr/local/share/plotjuggler/cmake)
+-- No build type selected, default to RelWithDebInfo
+[0mAMENT_PREFIX_PATH = [0m
+[0mROS_DISTRO (env) = humble[0m
+-- Detected Humble
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/lukas/ros2_ws/build/plotjuggler_ros
+[  4%] [34m[1mAutomatic MOC and UIC for target commonROS[0m
+[  4%] Built target commonROS_autogen
+[ 13%] [34m[1mGenerating ui_qnodedialog.h[0m
+[ 13%] [34m[1mGenerating ui_dialog_select_ros_topics.h[0m
+[ 18%] [34m[1mGenerating ui_dialog_with_itemlist.h[0m
+[ 22%] [34m[1mGenerating ui_publisher_select_dialog.h[0m
+[ 31%] [32mBuilding CXX object src/CMakeFiles/commonROS.dir/dialog_select_ros_topics.cpp.o[0m
+[ 31%] [32mBuilding CXX object src/CMakeFiles/commonROS.dir/commonROS_autogen/mocs_compilation.cpp.o[0m
+[ 36%] [32mBuilding CXX object src/CMakeFiles/commonROS.dir/parser_configuration.cpp.o[0m
+[ 40%] [32mBuilding CXX object src/CMakeFiles/commonROS.dir/ros_parsers/ros2_parser.cpp.o[0m
+[ 45%] [32m[1mLinking CXX static library libcommonROS.a[0m
+[ 45%] Built target commonROS
+[ 50%] [34m[1mAutomatic MOC and UIC for target DataStreamROS2[0m
+[ 54%] [34m[1mAutomatic MOC and UIC for target TopicPublisherROS2[0m
+[ 59%] [34m[1mAutomatic MOC and UIC for target DataLoadROS2[0m
+[ 59%] Built target DataLoadROS2_autogen
+[ 68%] [32mBuilding CXX object src/CMakeFiles/DataLoadROS2.dir/DataLoadROS2_autogen/mocs_compilation.cpp.o[0m
+[ 68%] [32mBuilding CXX object src/CMakeFiles/DataLoadROS2.dir/DataLoadROS2/dataload_ros2.cpp.o[0m
+[ 68%] Built target DataStreamROS2_autogen
+[ 77%] [32mBuilding CXX object src/CMakeFiles/DataStreamROS2.dir/DataStreamROS2_autogen/mocs_compilation.cpp.o[0m
+[ 77%] [32mBuilding CXX object src/CMakeFiles/DataStreamROS2.dir/DataStreamROS2/datastream_ros2.cpp.o[0m
+[ 77%] Built target TopicPublisherROS2_autogen
+[ 81%] [32mBuilding CXX object src/CMakeFiles/TopicPublisherROS2.dir/TopicPublisherROS2/publisher_ros2.cpp.o[0m
+[ 86%] [32mBuilding CXX object src/CMakeFiles/TopicPublisherROS2.dir/TopicPublisherROS2_autogen/mocs_compilation.cpp.o[0m
+[ 90%] [32m[1mLinking CXX shared library ../bin/libDataLoadROS2.so[0m
+[ 95%] [32m[1mLinking CXX shared library ../bin/libDataStreamROS2.so[0m
+[ 95%] Built target DataLoadROS2
+[100%] [32m[1mLinking CXX shared library ../bin/libTopicPublisherROS2.so[0m
+[100%] Built target DataStreamROS2
+[100%] Built target TopicPublisherROS2
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/plotjuggler_ros/launch
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/plotjuggler_ros/launch/plotjuggler.launch
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/ament_index/resource_index/package_run_dependencies/plotjuggler_ros
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/ament_index/resource_index/parent_prefix_path/plotjuggler_ros
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/plotjuggler_ros/environment/ament_prefix_path.sh
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/plotjuggler_ros/environment/ament_prefix_path.dsv
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/plotjuggler_ros/environment/path.sh
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/plotjuggler_ros/environment/path.dsv
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/plotjuggler_ros/local_setup.bash
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/plotjuggler_ros/local_setup.sh
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/plotjuggler_ros/local_setup.zsh
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/plotjuggler_ros/local_setup.dsv
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/plotjuggler_ros/package.dsv
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/ament_index/resource_index/packages/plotjuggler_ros
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/plotjuggler_ros/cmake/plotjuggler_rosConfig.cmake
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/plotjuggler_ros/cmake/plotjuggler_rosConfig-version.cmake
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/share/plotjuggler_ros/package.xml
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/lib/plotjuggler_ros/libDataLoadROS2.so
+-- Set runtime path of "/home/lukas/ros2_ws/install/plotjuggler_ros/lib/plotjuggler_ros/libDataLoadROS2.so" to ""
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/lib/plotjuggler_ros/libDataStreamROS2.so
+-- Set runtime path of "/home/lukas/ros2_ws/install/plotjuggler_ros/lib/plotjuggler_ros/libDataStreamROS2.so" to ""
+-- Installing: /home/lukas/ros2_ws/install/plotjuggler_ros/lib/plotjuggler_ros/libTopicPublisherROS2.so
+-- Set runtime path of "/home/lukas/ros2_ws/install/plotjuggler_ros/lib/plotjuggler_ros/libTopicPublisherROS2.so" to ""

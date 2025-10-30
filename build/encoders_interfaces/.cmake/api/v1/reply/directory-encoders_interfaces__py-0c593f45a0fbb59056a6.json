@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "encoders_interfaces__py",
+		"source" : "/home/lukas/ros2_ws/build/encoders_interfaces/encoders_interfaces__py"
+	}
+}
