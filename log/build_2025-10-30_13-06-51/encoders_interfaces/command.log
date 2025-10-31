@@ -1,6 +1,0 @@
-Invoking command in '/home/lukas/ros2_ws/build/encoders_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/lukas/ros2_ws/src/IAS0220_Task6-main/encoders_interfaces -DCMAKE_INSTALL_PREFIX=/home/lukas/ros2_ws/install/encoders_interfaces
-Invoked command in '/home/lukas/ros2_ws/build/encoders_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/lukas/ros2_ws/src/IAS0220_Task6-main/encoders_interfaces -DCMAKE_INSTALL_PREFIX=/home/lukas/ros2_ws/install/encoders_interfaces
-Invoking command in '/home/lukas/ros2_ws/build/encoders_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/lukas/ros2_ws/build/encoders_interfaces -- -j16 -l16
-Invoked command in '/home/lukas/ros2_ws/build/encoders_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/lukas/ros2_ws/build/encoders_interfaces -- -j16 -l16
-Invoking command in '/home/lukas/ros2_ws/build/encoders_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/lukas/ros2_ws/build/encoders_interfaces
-Invoked command in '/home/lukas/ros2_ws/build/encoders_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/lukas/ros2_ws/build/encoders_interfaces

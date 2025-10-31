@@ -26,7 +26,7 @@ class SteeringNode(Node):
 
         # Publisher, Subscribers
         self.cmd_pub = self.create_publisher(Twist,
-                                             '/diff_cont/cmd_vel_unstamped',
+                                             '/cmd_vel',
                                              10)
         self.imu_sub = self.create_subscription(Imu, '/imu',
                                                 self.imu_callback, 10)

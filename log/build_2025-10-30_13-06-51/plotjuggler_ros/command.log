@@ -1,6 +1,0 @@
-Invoking command in '/home/lukas/ros2_ws/build/plotjuggler_ros': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/lukas/ros2_ws/src/plotjuggler-ros-plugins -DCMAKE_INSTALL_PREFIX=/home/lukas/ros2_ws/install/plotjuggler_ros
-Invoked command in '/home/lukas/ros2_ws/build/plotjuggler_ros' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/lukas/ros2_ws/src/plotjuggler-ros-plugins -DCMAKE_INSTALL_PREFIX=/home/lukas/ros2_ws/install/plotjuggler_ros
-Invoking command in '/home/lukas/ros2_ws/build/plotjuggler_ros': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/lukas/ros2_ws/build/plotjuggler_ros -- -j16 -l16
-Invoked command in '/home/lukas/ros2_ws/build/plotjuggler_ros' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/lukas/ros2_ws/build/plotjuggler_ros -- -j16 -l16
-Invoking command in '/home/lukas/ros2_ws/build/plotjuggler_ros': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/lukas/ros2_ws/build/plotjuggler_ros
-Invoked command in '/home/lukas/ros2_ws/build/plotjuggler_ros' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/lukas/ros2_ws/build/plotjuggler_ros
