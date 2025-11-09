@@ -34,6 +34,11 @@ setup(
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*.urdf')),
         # ✅ Install config files
         (os.path.join('share', package_name, 'config'), glob('config/*.rviz')),
+
+        # FOR IMAGES
+        (os.path.join('share', package_name, 'data/images'),
+         glob('data/images/*.png')),
+
         # ✅ Install bag files
     ] + get_data_files_recursively('bags'),
     install_requires=['setuptools'],
@@ -49,6 +54,8 @@ setup(
             'odometry = IAS0220_252062IV.odometry:main',
             'random_walker = IAS0220_252062IV.random_walker:main',
             'position_calculator= IAS0220_252062IV.position_calculator:main',
+            'image_publisher = IAS0220_252062IV.image_publisher:main',
+            'camera_calibration = IAS0220_252062IV.camera_calibration:main',
         ],
     },
 
